@@ -218,6 +218,7 @@ const santoral = {
 "29-07": "Marta",
 "30-07": "Abdón y Senén",
 "31-07": "Ignacio de Loyola",
+  
 "01-08": "Alfonso María de Ligorio",
 "02-08": "Eusebio",
 "03-08": "Lydia",
@@ -249,6 +250,7 @@ const santoral = {
 "29-08": "Juan Bautista, Sabina",
 "30-08": "Rosa de Lima",
 "31-08": "Ramón",
+  
 "01-09": "Arturo",
 "02-09": "Moisés",
 "03-09": "Gregorio Magno",
@@ -279,6 +281,7 @@ const santoral = {
 "28-09": "Wenceslao",
 "29-09": "Miguel, Gabriel y Rafael",
 "30-09": "Jerónimo",
+  
 "01-10": "Teresa del Niño Jesús",
 "02-10": "Ángeles Custodios",
 "03-10": "Gerardo",
@@ -310,6 +313,7 @@ const santoral = {
 "29-10": "Narciso",
 "30-10": "Alonso",
 "31-10": "Quintín",
+  
 "01-11": "Todos los Santos",
 "02-11": "Todos los Fieles Difuntos",
 "03-11": "Martín de Porres",
@@ -340,6 +344,7 @@ const santoral = {
 "28-11": "Blanca",
 "29-11": "Saturnino",
 "30-11": "Andrés",
+  
 "01-12": "Florencia",
 "02-12": "Viviana",
 "03-12": "Francisco Javier",
