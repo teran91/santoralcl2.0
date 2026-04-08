@@ -1,5 +1,5 @@
 // Santoral completo por días y meses
-const santoral = {
+window.santoral = {
   "01-01": "María, Madre de Dios",
   "02-01": "Basilio, Gregorio",
   "03-01": "Genoveva",
