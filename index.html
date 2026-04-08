@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santoral Diario en Chile</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- IMPORTANTE: orden de scripts -->
+  <script src="santoral.js"></script>
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+
+<header>
+  <h1>Santoral Diario en Chile</h1>
+  <button id="toggleModo" onclick="toggleModoOscuro()">🌙</button>
+</header>
+
+<main>
+
+  <!-- Santoral del día -->
+  <section id="santoral-dia">
+    <p id="santoralHoy">Cargando...</p>
+  </section>
+
+  <!-- Buscar por fecha -->
+  <section>
+    <h2>Buscar por fecha</h2>
+    <input type="date" id="fechaSelector">
+    <button onclick="mostrarSantoralPorFecha()">Consultar</button>
+    <p id="santoralFechaSeleccionada"></p>
+  </section>
+
+  <!-- Buscar por nombre -->
+  <section>
+    <h2>Buscar santo</h2>
+    <input type="text" id="nombreSanto" placeholder="Ej: Juan">
+    <button onclick="buscarSanto()">Buscar</button>
+    <ul id="resultadosBusqueda"></ul>
+  </section>
+
+  <!-- Meses -->
+  <section>
+    <h2>Meses</h2>
+    <div class="calendario">
+      <a href="enero.html">Enero</a>
+      <a href="febrero.html">Febrero</a>
+      <a href="marzo.html">Marzo</a>
+      <a href="abril.html">Abril</a>
+      <a href="mayo.html">Mayo</a>
+      <a href="junio.html">Junio</a>
+      <a href="julio.html">Julio</a>
+      <a href="agosto.html">Agosto</a>
+      <a href="septiembre.html">Septiembre</a>
+      <a href="octubre.html">Octubre</a>
+      <a href="noviembre.html">Noviembre</a>
+      <a href="diciembre.html">Diciembre</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; <span id="anioActual"></span> Santoral Diario en Chile</p>
+</footer>
+
+</body>
+</html>
