@@ -185,7 +185,7 @@ window.santoral = {
   "27-06": "Cirilo",
   "28-06": "Ireneo",
   "29-06": "Pedro y Pablo",
-  "30-06": "Adolfo"
+  "30-06": "Adolfo",
 
   "01-07": "Ester",
 "02-07": "Gloria",
