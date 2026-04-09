@@ -6,52 +6,78 @@ body {
   transition: 0.3s;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 header {
   display: flex;
   align-items: center;
-  justify-content: center; /* centra el título */
+  justify-content: center;
   position: relative;
   background: #0d6efd;
   color: white;
   padding: 15px;
 }
 
-/* Título centrado */
 header h1 {
   margin: 0;
-  text-align: center;
 }
 
-/* Botón modo oscuro a la derecha */
 #toggleModo {
   position: absolute;
   right: 15px;
-  font-size: 18px;
   background: white;
   border: none;
   border-radius: 50%;
   padding: 8px;
   cursor: pointer;
-  transition: transform 0.2s;
 }
 
-#toggleModo:hover {
-  transform: scale(1.1);
-}
-
-/* ===== SECCIONES ===== */
+/* SECCIONES */
 section {
   background: white;
-  margin: 15px;
+  margin: 15px auto;
   padding: 15px;
   border-radius: 10px;
+  max-width: 500px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* ===== BOTONES ===== */
+/* SANTORAL DEL DÍA */
+#santoral-dia {
+  text-align: center;
+  background: linear-gradient(135deg, #ffffff, #e9f1ff);
+  border: 2px solid #0d6efd;
+}
+
+#fechaHoy {
+  font-size: 1.2rem;
+}
+
+#santoralHoy {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #0d6efd;
+}
+
+/* BUSCADORES */
+#buscador,
+#busquedaNombre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+input {
+  width: 80%;
+  max-width: 300px;
+  margin-bottom: 10px;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
 button {
-  margin-top: 10px;
+  width: 150px;
   padding: 8px;
   border-radius: 6px;
   border: none;
@@ -60,18 +86,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  background: #084fc7;
-}
-
-/* ===== INPUTS ===== */
-input {
-  padding: 6px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-/* ===== CALENDARIO ===== */
+/* CALENDARIO */
 .calendario {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -86,44 +101,51 @@ input {
   text-decoration: none;
   color: #0d6efd;
   font-weight: bold;
-  transition: 0.2s;
 }
 
-.calendario a:hover {
-  transform: scale(1.05);
-  background: #dbe7ff;
+/* MES */
+#listaMes {
+  list-style: none;
+  padding: 0;
 }
 
-/* ===== FOOTER CENTRADO ===== */
+#listaMes li {
+  background: #f1f5fb;
+  margin: 6px auto;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* FOOTER */
 footer {
   text-align: center;
   padding: 10px;
 }
 
-/* ===== MODO OSCURO ===== */
-body.modo-oscuro {
-  background: #121212;
-  color: #fff;
+.volver {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
 }
 
-body.modo-oscuro header {
-  background: #1f1f1f;
+/* MODO OSCURO */
+body.modo-oscuro {
+  background: #121212;
+  color: white;
 }
 
 body.modo-oscuro section {
   background: #1e1e1e;
 }
 
-body.modo-oscuro .calendario a {
-  background: #2a2a2a;
+body.modo-oscuro #santoral-dia {
+  border: 2px solid #4dabf7;
+}
+
+body.modo-oscuro #santoralHoy {
   color: #4dabf7;
 }
 
-body.modo-oscuro input {
+body.modo-oscuro #listaMes li {
   background: #2a2a2a;
-  color: white;
-}
-
-body.modo-oscuro button {
-  background: #333;
 }
