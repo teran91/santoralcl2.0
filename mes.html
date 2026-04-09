@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santoral por Mes</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="santoral.js"></script>
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+
+<header>
+  <h1>Santoral Diario en Chile</h1>
+  <button id="toggleModo" onclick="toggleModoOscuro()">🌙</button>
+</header>
+
+<main>
+
+  <a href="index.html" class="volver">⬅ Volver al inicio</a>
+
+  <section id="mes-container">
+    <h2 id="tituloMes">Cargando...</h2>
+    <ul id="listaMes"></ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; <span id="anioActual"></span> Santoral Diario en Chile</p>
+</footer>
+
+</body>
+</html>
