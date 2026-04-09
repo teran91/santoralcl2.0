@@ -1,79 +1,94 @@
-// ===== FECHA BONITA =====
-function obtenerFechaFormateada() {
+function obtenerSantoralDelDia() {
   const hoy = new Date();
-  const dias = ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
-  const meses = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
-  return `${dias[hoy.getDay()]} ${hoy.getDate()} de ${meses[hoy.getMonth()]}`;
+  const dia = hoy.getDate().toString().padStart(2, "0");
+  const mes = (hoy.getMonth() + 1).toString().padStart(2, "0");
+  return window.santoral[`${dia}-${mes}`] || "No hay santos registrados";
 }
 
-// ===== MOSTRAR SANTORAL DEL DÍA =====
 function mostrarSantoral() {
-  const hoy = new Date();
-  const dia = String(hoy.getDate()).padStart(2, "0");
-  const mes = String(hoy.getMonth() + 1).padStart(2, "0");
+  const elemento = document.getElementById("santoralHoy");
+  if (elemento) elemento.textContent = obtenerSantoralDelDia();
 
-  const nombre = santoral[`${dia}-${mes}`] || "No hay santos registrados";
+  const fechaTexto = document.getElementById("fechaHoy");
+  if (fechaTexto) {
+    const hoy = new Date();
+    const dias = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+    const meses = ["enero","febrero","marzo","abril","mayo","junio",
+                   "julio","agosto","septiembre","octubre","noviembre","diciembre"];
 
-  document.getElementById("santoralHoy").innerHTML = `
-    <h2>Santoral del día</h2>
-    <p><strong>${obtenerFechaFormateada()}</strong></p>
-    <p>${nombre}</p>
-  `;
+    fechaTexto.textContent =
+      `${dias[hoy.getDay()]} ${hoy.getDate()} de ${meses[hoy.getMonth()]}`;
+  }
 }
 
-// ===== BUSCAR POR FECHA =====
 function mostrarSantoralPorFecha() {
   const fecha = document.getElementById("fechaSelector").value;
   if (!fecha) return;
 
-  const [_, mes, dia] = fecha.split("-");
-  const resultado = santoral[`${dia}-${mes}`] || "No hay santos registrados";
+  const [year, month, day] = fecha.split("-");
+  const clave = `${day}-${month}`;
 
-  document.getElementById("santoralFechaSeleccionada").textContent = resultado;
+  document.getElementById("santoralFechaSeleccionada").textContent =
+    window.santoral[clave] || "No hay datos";
 }
 
-// ===== BUSCAR POR NOMBRE =====
 function buscarSanto() {
   const nombre = document.getElementById("nombreSanto").value.toLowerCase();
+  const lista = document.getElementById("resultadosBusqueda");
 
-  const resultados = Object.entries(santoral).filter(([_, santos]) =>
-    santos.toLowerCase().includes(nombre)
-  );
+  lista.innerHTML = "";
 
-  document.getElementById("resultadosBusqueda").innerHTML =
-    resultados.length
-      ? resultados.map(([f, s]) => `<li>${f}: ${s}</li>`).join("")
-      : "<li>No encontrado</li>";
+  Object.entries(window.santoral).forEach(([fecha, santos]) => {
+    if (santos.toLowerCase().includes(nombre)) {
+      const li = document.createElement("li");
+      li.textContent = `${fecha}: ${santos}`;
+      lista.appendChild(li);
+    }
+  });
+
+  if (!lista.innerHTML) {
+    lista.innerHTML = "<li>No se encontraron resultados</li>";
+  }
 }
 
-// ===== MODO OSCURO + ICONO =====
+function mostrarMes() {
+  const params = new URLSearchParams(window.location.search);
+  const mesSeleccionado = params.get("mes");
+  if (!mesSeleccionado) return;
+
+  const nombresMeses = [
+    "Enero","Febrero","Marzo","Abril","Mayo","Junio",
+    "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
+  ];
+
+  document.getElementById("tituloMes").textContent =
+    "Santoral de " + nombresMeses[mesSeleccionado - 1];
+
+  const lista = document.getElementById("listaMes");
+  lista.innerHTML = "";
+
+  Object.entries(window.santoral).forEach(([fecha, santos]) => {
+    const [dia, mes] = fecha.split("-");
+
+    if (parseInt(mes) === parseInt(mesSeleccionado)) {
+      const li = document.createElement("li");
+      li.textContent = `${dia} - ${santos}`;
+      lista.appendChild(li);
+    }
+  });
+}
+
 function toggleModoOscuro() {
   document.body.classList.toggle("modo-oscuro");
-
-  const boton = document.getElementById("toggleModo");
-
-  if (document.body.classList.contains("modo-oscuro")) {
-    boton.textContent = "☀️";
-    localStorage.setItem("modo", "oscuro");
-  } else {
-    boton.textContent = "🌙";
-    localStorage.setItem("modo", "claro");
-  }
 }
 
-// ===== AÑO AUTOMÁTICO =====
 function actualizarAnio() {
-  document.getElementById("anioActual").textContent =
-    new Date().getFullYear();
+  const el = document.getElementById("anioActual");
+  if (el) el.textContent = new Date().getFullYear();
 }
 
-// ===== INICIO =====
 document.addEventListener("DOMContentLoaded", () => {
   mostrarSantoral();
+  mostrarMes();
   actualizarAnio();
-
-  if (localStorage.getItem("modo") === "oscuro") {
-    document.body.classList.add("modo-oscuro");
-    document.getElementById("toggleModo").textContent = "☀️";
-  }
 });
