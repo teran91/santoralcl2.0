@@ -7,7 +7,6 @@
 
   <link rel="stylesheet" href="styles.css">
 
-  <!-- IMPORTANTE: orden de scripts -->
   <script src="santoral.js"></script>
   <script defer src="script.js"></script>
 </head>
@@ -21,43 +20,44 @@
 
 <main>
 
-  <!-- Santoral del día -->
+  <!-- SANTORAL DEL DÍA -->
   <section id="santoral-dia">
-    <p id="santoralHoy">Cargando...</p>
+    <h2 id="fechaHoy"></h2>
+    <p id="santoralHoy">Cargando el santoral del día...</p>
   </section>
 
-  <!-- Buscar por fecha -->
-  <section>
+  <!-- BUSCAR POR FECHA -->
+  <section id="buscador">
     <h2>Buscar por fecha</h2>
     <input type="date" id="fechaSelector">
-    <button onclick="mostrarSantoralPorFecha()">Consultar</button>
+    <button onclick="mostrarSantoralPorFecha()">Buscar</button>
     <p id="santoralFechaSeleccionada"></p>
   </section>
 
-  <!-- Buscar por nombre -->
-  <section>
+  <!-- BUSCAR POR NOMBRE -->
+  <section id="busquedaNombre">
     <h2>Buscar santo</h2>
     <input type="text" id="nombreSanto" placeholder="Ej: Juan">
     <button onclick="buscarSanto()">Buscar</button>
     <ul id="resultadosBusqueda"></ul>
   </section>
 
-  <!-- Meses -->
-  <section>
-    <h2>Meses</h2>
+  <!-- CALENDARIO -->
+  <section id="calendario">
+    <h2>Calendario Anual</h2>
     <div class="calendario">
-      <a href="enero.html">Enero</a>
-      <a href="febrero.html">Febrero</a>
-      <a href="marzo.html">Marzo</a>
-      <a href="abril.html">Abril</a>
-      <a href="mayo.html">Mayo</a>
-      <a href="junio.html">Junio</a>
-      <a href="julio.html">Julio</a>
-      <a href="agosto.html">Agosto</a>
-      <a href="septiembre.html">Septiembre</a>
-      <a href="octubre.html">Octubre</a>
-      <a href="noviembre.html">Noviembre</a>
-      <a href="diciembre.html">Diciembre</a>
+      <a href="mes.html?mes=1">Enero</a>
+      <a href="mes.html?mes=2">Febrero</a>
+      <a href="mes.html?mes=3">Marzo</a>
+      <a href="mes.html?mes=4">Abril</a>
+      <a href="mes.html?mes=5">Mayo</a>
+      <a href="mes.html?mes=6">Junio</a>
+      <a href="mes.html?mes=7">Julio</a>
+      <a href="mes.html?mes=8">Agosto</a>
+      <a href="mes.html?mes=9">Septiembre</a>
+      <a href="mes.html?mes=10">Octubre</a>
+      <a href="mes.html?mes=11">Noviembre</a>
+      <a href="mes.html?mes=12">Diciembre</a>
     </div>
   </section>
 
@@ -68,4 +68,4 @@
 </footer>
 
 </body>
-</html>
+        </html>
