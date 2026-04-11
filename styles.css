@@ -1,4 +1,12 @@
-/* ===== HEADER (SE MANTIENE ORIGINAL) ===== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #eef2f7, #dce6f5);
+  color: #333;
+  transition: 0.3s;
+}
+
+/* HEADER */
 header {
   display: flex;
   align-items: center;
@@ -9,50 +17,135 @@ header {
   padding: 15px;
 }
 
-/* ===== BOTÓN MODO OSCURO ===== */
+header h1 {
+  margin: 0;
+}
+
 #toggleModo {
   position: absolute;
   right: 15px;
-
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: none;
-
   background: white;
-  color: #0d6efd;
-
-  font-size: 18px;
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
   cursor: pointer;
+}
 
+/* SECCIONES */
+section {
+  background: white;
+  margin: 15px auto;
+  padding: 15px;
+  border-radius: 10px;
+  max-width: 500px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* SANTORAL DEL DÍA */
+#santoral-dia {
+  text-align: center;
+  background: linear-gradient(135deg, #ffffff, #e9f1ff);
+  border: 2px solid #0d6efd;
+}
+
+#fechaHoy {
+  font-size: 1.2rem;
+}
+
+#santoralHoy {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #0d6efd;
+}
+
+/* BUSCADORES */
+#buscador,
+#busquedaNombre {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
+  text-align: center;
 }
 
-/* Hover */
-#toggleModo:hover {
-  transform: scale(1.1);
+input {
+  width: 80%;
+  max-width: 300px;
+  margin-bottom: 10px;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
-/* ===== MODO MÓVIL ===== */
-@media (max-width: 768px) {
-
-  header {
-    flex-direction: column;
-  }
-
-  #toggleModo {
-    position: static;
-    margin-top: 10px;
-  }
+button {
+  width: 150px;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  background: #0d6efd;
+  color: white;
+  cursor: pointer;
 }
 
-/* ===== MODO OSCURO ===== */
-body.modo-oscuro #toggleModo {
-  background: #333;
-  color: #fff;
+/* CALENDARIO */
+.calendario {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.calendario a {
+  background: #f1f5fb;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #0d6efd;
+  font-weight: bold;
+}
+
+/* MES */
+#listaMes {
+  list-style: none;
+  padding: 0;
+}
+
+#listaMes li {
+  background: #f1f5fb;
+  margin: 6px auto;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 10px;
+}
+
+.volver {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* MODO OSCURO */
+body.modo-oscuro {
+  background: #121212;
+  color: white;
+}
+
+body.modo-oscuro section {
+  background: #1e1e1e;
+}
+
+body.modo-oscuro #santoral-dia {
+  border: 2px solid #4dabf7;
+}
+
+body.modo-oscuro #santoralHoy {
+  color: #4dabf7;
+}
+
+body.modo-oscuro #listaMes li {
+  background: #2a2a2a;
 }
